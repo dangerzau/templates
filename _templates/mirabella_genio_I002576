@@ -23,6 +23,11 @@ Setting reporting rules:
 ```console
 Rule1 ON TuyaReceived#cmndData DO Publish KitchenPir/tele/PirSensor %value%_sensor_Triggered ENDON
 ```
+Another alternative is to have the sensor publish to a "virtual switch" topic when motion is sensed
+
+```console
+Rule1 on TuyaReceived#Data=55AA0005000A65010001016601000100DE do Publish %topic%/stat/motion ON ENDON on TuyaReceived#Data=55AA0005000A65010001006601000100DD do Publish %topic%/stat/motion OFF endon
+```
 
 ![image](https://user-images.githubusercontent.com/5904370/72878863-0b771480-3cfc-11ea-9397-efb976c75e9a.png)
 
